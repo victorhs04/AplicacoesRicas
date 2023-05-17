@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style> 
+#fconf{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border: 1px solid #000;
+    background-color: #fff;
+    padding: 20px;
+    display: none; /*oculta o form, ou seja ele so vai aparecer quando clicar no botao opções*/
+}
+
+</style>
+<body>
+    <p>Exemplo de WebStorage</p>
+    <p id="painel"></p>
+    <button onclick="mostrarOpcoes()"> Opções </button>
+    <form name="fconf" id="fconf">
+            <label>Nome:</label><br>
+            <input type="text" size="20" id="fnome"><br><br>
+            <label >Cor fundo:</label><br>
+            <input type="radio" name="fcorF" onclick="defineCor(1,'#f00')">Vermelho<br>
+            <input type="radio" name="fcorF" onclick="defineCor(1,'#0f0')">Verde<br>
+            <input type="radio" name="fcorF" onclick="defineCor(1,'#00f')">Azul<br>
+            <label>Cor texto:</label><br>
+            <input type="radio" name="fcorT" onclick="defineCor(2,'#000')">Preto<br>
+            <input type="radio" name="fcorF" onclick="defineCor(2,'#fff')">Branco<br>
+            <input type="radio" name="fcorF" onclick="defineCor(2,'#ff0')">Amarelo<br>
+            <input type="button" value="Gravar" onclick="gravar()"><br>
+    </form>
+    <script src="script2.js"></script>
+</body>
+</html>

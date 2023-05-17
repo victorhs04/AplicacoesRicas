@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        textarea{
+            background-color: gray;
+            border-radius: 10px;
+        }
+        p{
+            padding: 10px;
+        }
+        .divfilho{
+            background-color: white;
+            margin: 10px;
+        }
+        .divmae{
+            display: flex;
+            flex-direction: row;
+            background-color: darkcyan;
+            width: 675px;
+        }
+        #div1{
+            width: 150px;
+            height: 70px;
+            padding: 10px;
+            border: 0px;
+            display: flex;
+            margin: 10px;
+        }
+    </style>
+    <script>
+        function allowDrop(ev){
+            ev.preventDefault()
+        };
+        function drag(ev){
+            ev.dataTransfer.setData("text",ev.target.id);
+        };
+        function drop(ev){
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            ev.target.appendChild(document.getElementById(data));
+        };
+    </script>
+</head>
+<body>
+    <p>Arraste a imagem para dentro do retangulo que voce quiser:</p>
+
+    <div class="divmae">
+        <div class="divfilho">
+            <p>FAZER</p>
+            <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"> <textarea id="drag1"  draggable="true" ondragstart="drag(event)" width="350px" height="70px"></textarea></div>         
+            <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"><textarea id="drag2"  draggable="true" ondragstart="drag(event)" width="350px" height="70px"></textarea></div>        
+            <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"><textarea id="drag3"  draggable="true" ondragstart="drag(event)" width="350px" height="70px"></textarea></div>         
+           
+        </div>
+
+        <div class="divfilho">
+            <p>FAZENDO</p>
+            <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>      
+            <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>        
+            <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>       
+           
+        </div>
+
+        <div class="divfilho">
+            <p>FEITO</p>
+            <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>         
+            <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>           
+            <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+          
+        </div>
+    </div>
+    
+</body>
+</html>
+
+//substituir imagem por caixa de texto 20 colunas 4 linhas
