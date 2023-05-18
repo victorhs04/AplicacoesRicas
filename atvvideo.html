@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vídeo Player</title>
+    <style>
+      #video-container {
+        position: relative;
+        width: 800px;
+        margin: 0 auto;
+      }
+
+      #video {
+        width: 100%;
+        height: auto;
+      }
+
+      #controls {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+
+      button {
+        background-color: #fff;
+        border: none;
+        color: #000;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #000;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="video-container">
+      <video id="video" controls>
+        <source src="" type="video/mp4">
+      </video>
+      <div id="controls">
+        <button id="play">Reproduzir</button>
+        <button id="pause">Pausar</button>
+        <button id="rewind">Retroceder</button>
+        <button id="fast-forward">Avançar</button>
+        <button id="fullscreen">Tela Cheia</button>
+      </div>
+    </div>
+    <script>
+      var video = document.getElementById("video");
+      var playButton = document.getElementById("play");
+      var pauseButton = document.getElementById("pause");
+      var rewindButton = document.getElementById("rewind");
+      var fastForwardButton = document.getElementById("fast-forward");
+      var fullscreenButton = document.getElementById("fullscreen");
+
+      playButton.addEventListener("click", function() {
+        video.play();
+      });
+
+      pauseButton.addEventListener("click", function() {
+        video.pause();
+      });
+
+      rewindButton.addEventListener("click", function() {
+        video.currentTime -= 10;
+      });
+
+      fastForwardButton.addEventListener("click", function() {
+        video.currentTime += 10;
+      });
+
+      fullscreenButton.addEventListener("click", function() {
+        if (video.requestFullscreen) {
+          video.requestFullscreen();
+        } else if (video.webkitRequestFullscreen) {
+          video.webkitRequestFullscreen();
+        } else if (video.msRequestFullscreen) {
+          video.msRequestFullscreen();
+        }
+      });
+    </script>
+  </body>
+</html>
